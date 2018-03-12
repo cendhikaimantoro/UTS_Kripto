@@ -1,7 +1,7 @@
 from src.algorithm.Block import Block
 from src.algorithm.Toolkit import Toolkit
 
-class ECB(object):
+class CBC(object):
 
     def __init__(self, chiperEngine):
         self.firstEncrypt = True
@@ -43,6 +43,7 @@ class ECB(object):
             decrypted = self.chiperEngine.decrypt(chiperBit.bit)
             blockBit = Block((decrypted[0],decrypted[1], length), Block.BIT)
             blockByte = blockBit.byte[:length]
+            self.firstDecrypt = False
         else:
             decrypted = self.chiperEngine.decrypt(chiperBit.bit)
             tk = Toolkit()
@@ -52,4 +53,4 @@ class ECB(object):
 
         self.prevChiper = chiperBit.bit
 
-        return blockByte
+        return blockByte, length
