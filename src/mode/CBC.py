@@ -17,7 +17,6 @@ class CBC(object):
 
         #transform into bit matrix
         blockBit = Block(blockByte, Block.BYTE)
-
         if (self.firstEncrypt):
             encrypted = self.chiperEngine.encrypt(blockBit.bit)
             chiperBit = Block((encrypted[0],encrypted[1],16), Block.BIT)
