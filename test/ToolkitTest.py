@@ -57,6 +57,14 @@ class ToolkitTest(object):
                 print(out[i][j])
             print()
 
+    def testCounter(self):
+        tk = Toolkit()
+        for i in range(5):
+            hashVal = tk.counter(i)
+            for j in range(8):
+                print(hashVal[0][j],hashVal[1][j])
+            print()
+
     def execute(self):
         print("=========================================")
         self.testTransposition()
@@ -66,6 +74,8 @@ class ToolkitTest(object):
         self.testRoundFunction()
         print("=========================================")
         self.testRoundKey()
+        print("=========================================")
+        self.testCounter()
         print("=========================================")
 
 

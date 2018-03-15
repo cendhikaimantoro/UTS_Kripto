@@ -77,3 +77,24 @@ class Toolkit(object):
             for j in range(8):
                 ret[i][j] = int(l[i][j] != r[i][j])
         return ret
+
+    def counter(self, k):
+        key = b'kriptografi'
+        intSequence = []
+        counter = 0
+        for i in range(16):
+            counter += int(key[i%len(key)])
+            counter = counter % 256
+            c = ((k+1) * counter) % 256
+            intSequence.append(c)
+        byteSequence = bytearray(intSequence)
+
+        bitstream = bin(int.from_bytes(byteSequence, byteorder='big'))[2:]
+        padding = '0' * ((8 - (len(bitstream) % 8)) % 8)
+        bitstream = padding + bitstream
+
+        bit = [[[0 for i in range(8)] for j in range(8)] for k in range(2)]
+        for i in range(len(bitstream)):
+            bit[i // 64][i % 64 // 8][i % 8] = int(bitstream[i])
+
+        return bit
