@@ -22,7 +22,7 @@ class Counter(object):
         self.counter += 1
         input = (tk.xorFunction(blockBit.bit[0], encrypted[0]), tk.xorFunction(blockBit.bit[1], encrypted[1]))
         chiperBit = Block((input[0], input[1], 16), Block.BIT)
-        chiperByte = chiperBit.byte[:length]
+        chiperByte = chiperBit.byte
 
         return chiperByte, length
 
@@ -34,6 +34,6 @@ class Counter(object):
         self.counter += 1
         input = (tk.xorFunction(blockBit.bit[0], encrypted[0]), tk.xorFunction(blockBit.bit[1], encrypted[1]))
         chiperBit = Block((input[0], input[1], 16), Block.BIT)
-        chiperByte = chiperBit.byte[:length]
+        chiperByte = chiperBit.byte
 
         return chiperByte, length

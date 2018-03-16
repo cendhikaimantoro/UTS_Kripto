@@ -1,6 +1,7 @@
 from src.algorithm.Block import Block
 from src.algorithm.Toolkit import Toolkit
 from src.architecture.FeistelNetwork import FeistelNetwork
+from src.mode.CFB import CFB
 from src.mode.CBC import CBC
 from src.mode.ECB import ECB
 from src.mode.CFB import CFB
